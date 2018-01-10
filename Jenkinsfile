@@ -3,13 +3,13 @@ node {
      echo 'Checout Code and clone it inside jenkins workspace..'
      git 'https://github.com/Nasrin224/DeepriRepo.git'
    }
-   stage('Build Test & Package') {
+   stage('Build  & Package') {
       echo 'Build the package'
       sh 'mvn clean compile package'
    }
-   stage('Results') {
+   stage('Test & Results') {
        echo 'Test Results are reported..'
-   
+      sh 'mvn test'
    }
    stage('Deploy to Dev'){
        echo 'Deploy to Dev environment'
