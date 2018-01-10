@@ -1,7 +1,7 @@
 node {
     stage('Git Checkout') { // for display purposes
      echo 'Checout Code and clone it inside jenkins workspace..'
-     git 'https://github.com/Nasrin224/DeepriRepo.git'
+     checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '78bf7588-0e63-4171-bdf0-673910b6e365', url: 'https://github.com/Nasrin224/DeepriRepo.git']]])
    }
    stage('Build Test & Package') {
       echo 'Build the package'
